@@ -30,11 +30,6 @@ void UBO::BindBase(GLuint ID, GLuint index) {
 	glBindBufferBase(bufferType, index, ID);
 }
 
-void UBO::UnbindBase(GLuint index) {
-	glBindBufferBase(bufferType, index, 0);
-}
-
-
 void UBO::BindRange(GLuint index, GLuint offset, GLsizeiptr size) {
 	BindRange(ID, index, offset, size);
 }

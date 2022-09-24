@@ -43,7 +43,6 @@ public:
 	#ifdef GL_API_GLAD_OPENGL_3
 	void BindBase(GLuint index);
 	static void BindBase(GLuint ID, GLuint index);
-	static void UnbindBase(GLuint index);
 	void BindRange(GLuint index, GLuint offset, GLsizeiptr size);
 	static void BindRange(GLuint ID, GLuint index, GLuint offset, GLsizeiptr size);
 	static void UnbindRange(GLuint index, GLuint offset, GLsizeiptr size);
