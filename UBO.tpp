@@ -15,8 +15,7 @@ void UBO::Init(type* data, GLsizeiptr size, GLenum howUse, const GLchar* name, G
 
 template <typename type>
 void UBO::Init(GLuint* ID, type* data, GLsizeiptr size, GLenum howUse, const GLchar* name, GLuint shader, GLuint index) {
-	GLuint uniform = glGetUniformBlockIndex(shader, name);
-	glUniformBlockBinding(shader, uniform, index);
+	glUniformBlockBinding(shader, glGetUniformBlockIndex(shader, name), index);
 	glGenBuffers(1, ID);
 	Bind(*ID);
 	Data<type>(data, size, howUse);

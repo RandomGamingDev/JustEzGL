@@ -198,6 +198,12 @@ public:
 	static GLFWmonitor* GetPrimaryMonitor();
 	static const GLFWvidmode* GetVideoMode(GLFWmonitor* monitor);
 	static const GLFWvidmode* GetVideoModes(GLFWmonitor* monitor, int* count);
+	#ifdef WINDOW_API_GLFW
+	template <typename type>
+	static type* GetPixels(GLint x, GLint y, GLsizei width, GLsizei height, GLenum format, GLenum pixelsType);
+	template <typename type>
+	static type* GetPixels(GLint x, GLint y, GLsizei width, GLsizei height, GLenum format, GLenum pixelsType, GLsizei size);
+	#endif
 };
 
 #include "Graphics.tpp"

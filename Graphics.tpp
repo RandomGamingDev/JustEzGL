@@ -35,6 +35,20 @@ type* Graphics::GetWindowPointer(GLFWwindow* window) {
 	return static_cast<type*>(glfwGetWindowUserPointer(window));
 }
 
+template <typename type>
+type* GetPixels(GLint x, GLint y, GLsizei width, GLsizei height, GLenum format, GLenum pixelsType) {
+    type* pixels;
+    glReadPixels(x, y, width, height, format, pixelsType, pixels);
+    return pixels;
+}
+
+template <typename type>
+type* GetPixels(GLint x, GLint y, GLsizei width, GLsizei height, GLenum format, GLenum pixelsType, GLsizei size) {
+    type* pixels;
+    glReadnPixels(x, y, width, height, format, pixelsType, size, pixels);
+    return pixels;
+}
+
 #endif
 
 #endif
