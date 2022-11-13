@@ -2,11 +2,12 @@
 #define SHADER_HEADER
 
 #ifdef GL_API_GLAD_OPENGL_3
-#include<glad/glad.h>
+#include <glad/glad.h>
 #endif
 
-#include<fstream>
-#include<iostream>
+#include <cstring>
+#include <fstream>
+#include <iostream>
 
 struct ShaderData {
 	#ifdef GL_API_GLAD_OPENGL_3
