@@ -203,6 +203,7 @@ public:
 	static type* GetPixels(GLint x, GLint y, GLsizei width, GLsizei height, GLenum format, GLenum pixelsType);
 	template <typename type>
 	static type* GetPixels(GLint x, GLint y, GLsizei width, GLsizei height, GLenum format, GLenum pixelsType, GLsizei size);
+	static void ActiveTexture(GLenum texture);
 	#endif
 };
 

@@ -348,6 +348,10 @@ const GLFWvidmode* Graphics::GetVideoModes(GLFWmonitor* monitor, int* count) {
 	return glfwGetVideoModes(monitor, count);
 }
 
+void Graphics::ActiveTexture(GLenum texture) {
+	glActiveTexture(texture);
+}
+
 #endif
 
 #endif
