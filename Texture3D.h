@@ -7,21 +7,21 @@
 
 class Texture3D {
 public:
-#ifdef GL_API_GLAD_OPENGL_3
+	#ifdef GL_API_GLAD_OPENGL_3
 	static const GLenum bufferType = GL_TEXTURE_3D;
 	GLuint ID;
 	GLint width;
 	GLint height;
 	GLint length;
-#endif
+	#endif
 
-#ifdef GL_API_GLAD_OPENGL_3
+	#ifdef GL_API_GLAD_OPENGL_3
 	template <typename type>
 	Texture3D(type* pixels, GLsizei width, GLsizei height, GLsizei length, GLenum slot, GLint internalFormat, GLenum format, GLenum pixelType);
-#endif
+	#endif
 	~Texture3D();
 
-#ifdef GL_API_GLAD_OPENGL_3
+	#ifdef GL_API_GLAD_OPENGL_3
 	template <typename type>
 	void Init(type* pixels, GLint width, GLsizei height, GLsizei length, GLenum slot, GLint internalFormat, GLenum format, GLenum pixelType);
 	template <typename type>
@@ -34,16 +34,17 @@ public:
 	static void Data(GLsizei width, GLsizei height, GLsizei length, GLint level, GLint internalFormat, GLenum format, GLenum pixelType, type* pixels);
 	template <typename type>
 	static void SubData(GLint xOffset, GLint yOffset, GLint zOffset, GLsizei width, GLsizei height, GLsizei length, GLint level, GLenum format, GLenum pixelType, type* pixels);
-#endif
+	#endif
 	void Bind();
-#ifdef GL_API_GLAD_OPENGL_3
+	#ifdef GL_API_GLAD_OPENGL_3
 	static void Bind(GLuint ID);
-#endif
+	#endif
 	static void Unbind();
 	void Delete();
-#ifdef GL_API_GLAD_OPENGL_3
+	#ifdef GL_API_GLAD_OPENGL_3
 	static void Delete(GLuint* ID);
-#endif
+	void GenerateMipmap();
+	#endif
 };
 
 #include "Texture3D.tpp"

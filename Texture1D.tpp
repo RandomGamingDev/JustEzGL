@@ -37,7 +37,6 @@ void Texture1D::Data(GLsizei width, GLint level, GLint internalFormat, GLenum fo
 	}
 	else {
 		glTexImage1D(bufferType, level, internalFormat, width, 0, format, pixelType, pixels);
-		glGenerateMipmap(bufferType);
 	}
 }
 

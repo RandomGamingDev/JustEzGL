@@ -40,7 +40,6 @@ void Texture2D::Data(GLsizei width, GLsizei height, GLint level, GLint internalF
 	}
 	else {
 		glTexImage2D(bufferType, level, internalFormat, width, height, 0, format, pixelType, pixels);
-		glGenerateMipmap(bufferType);
 	}
 }
 

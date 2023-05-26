@@ -42,6 +42,7 @@ public:
 	void Delete();
 	#ifdef GL_API_GLAD_OPENGL_3
 	static void Delete(GLuint* ID);
+	void GenerateMipmap();
 	#endif
 };
 

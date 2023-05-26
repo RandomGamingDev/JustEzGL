@@ -7,19 +7,19 @@
 
 class Texture1D {
 public:
-#ifdef GL_API_GLAD_OPENGL_3
+	#ifdef GL_API_GLAD_OPENGL_3
 	static const GLenum bufferType = GL_TEXTURE_1D;
 	GLuint ID;
 	GLint width;
-#endif
+	#endif
 
-#ifdef GL_API_GLAD_OPENGL_3
+	#ifdef GL_API_GLAD_OPENGL_3
 	template <typename type>
 	Texture1D(type* pixels, GLsizei width, GLenum slot, GLint internalFormat, GLenum format, GLenum pixelType);
-#endif
+	#endif
 	~Texture1D();
 
-#ifdef GL_API_GLAD_OPENGL_3
+	#ifdef GL_API_GLAD_OPENGL_3
 	template <typename type>
 	void Init(type* pixels, GLint width, GLenum slot, GLint internalFormat, GLenum format, GLenum pixelType);
 	template <typename type>
@@ -32,16 +32,17 @@ public:
 	static void Data(GLsizei width, GLint level, GLint internalFormat, GLenum format, GLenum pixelType, type* pixels);
 	template <typename type>
 	static void SubData(GLint xOffset, GLsizei width, GLint level, GLenum format, GLenum pixelType, type* pixels);
-#endif
+	#endif
 	void Bind();
-#ifdef GL_API_GLAD_OPENGL_3
+	#ifdef GL_API_GLAD_OPENGL_3
 	static void Bind(GLuint ID);
-#endif
+	#endif
 	static void Unbind();
 	void Delete();
-#ifdef GL_API_GLAD_OPENGL_3
+	#ifdef GL_API_GLAD_OPENGL_3
 	static void Delete(GLuint* ID);
-#endif
+	void GenerateMipmap();
+	#endif
 };
 
 #include "Texture1D.tpp"

@@ -34,4 +34,8 @@ void Texture1D::Delete(GLuint* ID) {
 	glDeleteTextures(1, ID);
 }
 
+void Texture1D::GenerateMipmap() {
+	glGenerateMipmap(this->bufferType);
+}
+
 #endif
