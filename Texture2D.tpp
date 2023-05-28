@@ -22,7 +22,6 @@ void Texture2D::Init(GLuint* ID, type* pixels, GLsizei width, GLsizei height, GL
 	glActiveTexture(slot);
 	Bind(*ID);
 	Data<type>(width, height, 0, internalFormat, format, pixelType, pixels);
-	glGenerateMipmap(bufferType);
 }
 
 template <typename type>
@@ -46,8 +45,6 @@ void Texture2D::Data(GLsizei width, GLsizei height, GLint level, GLint internalF
 template <typename type>
 void Texture2D::SubData(GLint xOffset, GLint yOffset, GLsizei width, GLsizei height, GLint level, GLenum format, GLenum pixelType, type* pixels) {
 	glTexSubImage2D(bufferType, level, xOffset, yOffset, width, height, 0, format, pixelType, pixels);
-	if (!level)
-		glGenerateMipmap(bufferType);
 }
 
 #endif

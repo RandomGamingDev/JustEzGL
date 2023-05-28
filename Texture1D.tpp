@@ -21,7 +21,6 @@ void Texture1D::Init(GLuint* ID, type* pixels, GLsizei width, GLenum slot, GLint
 	glActiveTexture(slot);
 	Bind(*ID);
 	Data<type>(width, 0, internalFormat, format, pixelType, pixels);
-	glGenerateMipmap(bufferType);
 }
 
 template <typename type>
@@ -43,8 +42,6 @@ void Texture1D::Data(GLsizei width, GLint level, GLint internalFormat, GLenum fo
 template <typename type>
 void Texture1D::SubData(GLint xOffset, GLsizei width, GLint level, GLenum format, GLenum pixelType, type* pixels) {
 	glTexSubImage1D(bufferType, level, xOffset, width, 0, format, pixelType, pixels);
-	if (!level)
-		glGenerateMipmap(bufferType);
 }
 
 #endif

@@ -23,7 +23,6 @@ void Texture3D::Init(GLuint* ID, type* pixels, GLsizei width, GLsizei height, GL
 	glActiveTexture(slot);
 	Bind(*ID);
 	Data<type>(width, height, length, 0, internalFormat, format, pixelType, pixels);
-	glGenerateMipmap(bufferType);
 }
 
 template <typename type>
@@ -45,8 +44,6 @@ void Texture3D::Data(GLsizei width, GLsizei height, GLsizei length, GLint level,
 template <typename type>
 void Texture3D::SubData(GLint xOffset, GLint yOffset, GLint zOffset, GLsizei width, GLsizei height, GLsizei length, GLint level, GLenum format, GLenum pixelType, type* pixels) {
 	glTexSubImage3D(bufferType, level, xOffset, yOffset, zOffset, width, height, length, 0, format, pixelType, pixels);
-	if (!level)
-		glGenerateMipmap(bufferType);
 }
 
 #endif
